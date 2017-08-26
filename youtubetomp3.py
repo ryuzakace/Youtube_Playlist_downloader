@@ -18,6 +18,7 @@ try:
     req.raise_for_status()
 except Exception as exc:
     print('There was a problem:',exc)
+soup = BeautifulSoup(req.text,"html.parser")
 
 youman = 'https://www.youtube.com'
 
@@ -33,8 +34,11 @@ for tat,ti,fil in os.walk(folder):
     #    print(gu)
         if(str(gu).endswith('.mp3')):
             print('mp3----',gu)
-            #try-
-            #shutil.move(os.path.join(folder,str(gu)), naya)
+            try:
+                shutil.move(os.path.join(folder,str(gu)), naya)
+            except:
+                pass
+    break
 
 ydl_opts = {
     'format': 'bestaudio/best',
@@ -45,24 +49,67 @@ ydl_opts = {
     }],
 }
 
+#Shirish  is great
+titl =[]
+
 if(what == 1):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
+    for tat,ti,fil in os.walk(folder):
+        #print(fil)
+        for gu in fil:
+        #    print(gu)
+            if(str(gu).endswith('.mp3')):
+                print('mp3----',gu)
+                try:
+                    shutil.move(os.path.join(folder,str(gu)), naya)
+                except:
+                    pass
+        break
 else:
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    folder = os.path.abspath(dir_path)
 
+    for divs in soup.findAll('div',attrs={'class':'playlist-header-content'}):
+        if(divs.get('data-list-title')):
+            titl.append(divs.get('data-list-title'))
+    naya = os.path.join(folder,titl[0])
+    if not os.path.exists(naya):
+        os.makedirs(naya)
     print("Downloading the entire playlist")
 
     soup = BeautifulSoup(req.text,"html.parser")
+
     atgs = soup.find_all('a')
 
 
     for i in atgs:
-        if(i.get('href')):
-            dd = i.get('href')
-            dx = dd[0:6]
-            if(dx=='/watch'):
-                dx = youman+dd
+        try:
+            if(i.get('href')):
+                dd = i.get('href')
+                dx = dd[0:6]
+                if(dx=='/watch'):
+                    dx = youman+dd
             #print(dx)
             #try-catch here-----~~~~
-                with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                    ydl.download([dx])
+                    try:
+                        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                            ydl.download([dx])
+                    except:
+                        print("Skipping this one")
+                        next(atgs, None)
+        except:
+            print("I don't know what they told about me!")
+            pass
+
+    for tat,ti,fil in os.walk(folder):
+        #print(fil)
+        for gu in fil:
+        #    print(gu)
+            if(str(gu).endswith('.mp3')):
+                print('mp3----',gu)
+                try:
+                    shutil.move(os.path.join(folder,str(gu)), naya)
+                except:
+                    pass
+        break
