@@ -34,7 +34,7 @@ for tat,ti,fil in os.walk(folder):
         if(str(gu).endswith('.mp3')):
             print('mp3----',gu)
             #try-
-            #shutil.move(os.path.join(folder,str(gu)), naya)
+            shutil.move(os.path.join(folder,str(gu)), naya)
 
 ydl_opts = {
     'format': 'bestaudio/best',
@@ -44,6 +44,8 @@ ydl_opts = {
         'preferredquality': '192',
     }],
 }
+
+#Shirish  is great
 
 if(what == 1):
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
