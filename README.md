@@ -11,6 +11,7 @@ Steps to use:
 
 <br>Note : Singles will be moved to ryuz_single directory
 <br>For Playlist, a separate playlist will be formed
+<br>For dependies, include all the packages from the script.
 
 <br>
 <h3><b>
