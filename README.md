@@ -10,7 +10,7 @@ Steps to use:
 <br>3 - Choose whether to download single or entire playlist
 
 <br>Note : Singles will be moved to ryuz_single directory
-<br>For Playlist, a separate playlist will be formed
+<br>For Playlist, a separate folder with playlist's name will be formed
 <br>For dependies, include all the packages from the script.
 
 <br>
@@ -18,7 +18,7 @@ Steps to use:
 Youtube Playlist downloader(song's name only)(youtube_playlist.py)
 </b></h3>
 Steps to use:<br>
-1 - Intsall python 3.5.2, bs4, pyperclip<br>
-2 - Just copy url and run the python file... You read it write, you only need to copy the link no need to paste it<br>
+1 - Install python 3.5.2, bs4, pyperclip<br>
+2 - Just copy url and run the python file...you only need to copy the link no need to paste it<br>
 3 - A new txt file will be created in the same directory with your Playlist's name</br>
 
