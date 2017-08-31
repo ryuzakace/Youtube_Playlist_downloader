@@ -14,6 +14,11 @@ Steps to use:
 <br>For dependies, include all the packages from the script.
 
 <br>
+<h3><b>Lyrics Downloader</b></h3>
+<br>1 : Run the script, it will eventually ask you to enter the name of artist and song
+<br>2 : A new folder if not already there will be created by the name of ryuz_lyrics
+<br>3 : Your lyrics' file will be contained in that folder
+<br>Note : In the current version, the inputs' spellings should be correct
 <h3><b>
 Youtube Playlist downloader(song's name only)(youtube_playlist.py)
 </b></h3>
